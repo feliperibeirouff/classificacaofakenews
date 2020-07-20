@@ -3,23 +3,7 @@ from datetime import datetime
 import csv
 
 def get_dataset_params(version):
-    if version == 'v1':
-        params = {
-            'train_base': 'features100_train.tsv',
-            'validate_base': 'features100_validate.tsv',
-            'min_words': 6,
-            'max_rows_train': 10000,
-            'max_rows_validate': 10000
-        }
-    elif version == 'v1.1':
-        params = {
-            'train_base': 'features100_train.tsv',
-            'validate_base': 'features100_validate.tsv',
-            'min_words': 6,
-            'max_rows_train': 10000,
-            'max_rows_validate': 3000
-        }
-    elif version == 'v2':
+    if version == 'v2':
         params = {
             'train_base': 'features100_train.tsv',
             'validate_base': 'features100_validate.tsv',
@@ -75,9 +59,4 @@ class Reader:
                 print(i)
             if max_rows != None and i > max_rows:
                 break
-
-            #    break
-                #print2(X)
-                #print2(y)
-
         return [X, y]

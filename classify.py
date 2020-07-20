@@ -16,12 +16,12 @@ import io
 
 from logger import config_log, print2
 
-dataset_key = 'v2'
+dataset_version = 'v2'
 
 input_path = "H:\\mestrado\\aprendizadomaquina\\trabalho2\\datasetfakenews\\"
 
 config_log(input_path)
-reader = Reader(input_path, dataset_key)
+reader = Reader(input_path, dataset_version)
 
 def classify(model, modelname, basename, X_test, y_test, X_train, y_train):
     start = timer()
@@ -75,6 +75,6 @@ for i in range(3, 6):
 
 models["random_without_depth"] = RandomForestClassifier(random_state=0)
 
-basename = dataset_key + "_train_"+str(len(y_train))+"_valid"+str(len(y_valid))
+basename = dataset_version + "_train_"+str(len(y_train))+"_valid"+str(len(y_valid))
 for key in models.keys():
     classify(models[key], key, basename, X_valid, y_valid)
